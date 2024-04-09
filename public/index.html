@@ -1,59 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./index.css">
-  <title>Document</title>
-  <script src="https://use.fontawesome.com/4ecc3dbb0b.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Búsqueda de Propiedades</title>
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
-
 <body>
-  <div class="form_wrapper">
-    <div class="form_container">
-      <div class="title_container">
-        <h2>Zillow - Recolector</h2>
-      </div>
-      <div class="row clearfix">
-        <div class="">
-          <form>
-            <div class="input_field select_option">
-              <select>
-                <option selected disabled>Estados</option>
-                <option>New York</option>
-                <option>Washinton</option>
-                <option>Todos</option>
-              </select>
-              <div class="select_arrow"></div>
-            </div>
-            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-              <input type="text" name="text" placeholder="Tipo Hogar" required />
-            </div>
-            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-              <input type="text" name="text" placeholder="Operacion" required />
-            </div>
+    <form id="formulario-busqueda" action="#">
+        <label for="estado">Estado:</label>
+        <select id="estado" name="estado">
+            <option value="CA">California</option>
+            <option value="TX">Texas</option>
+            <option value="FL">Florida</option>
+            <option value="NY">Nueva York</option>
+        </select>
 
-            <div class="row clearfix">
-              <div class="col_half">
-                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                  <input min="0" type="number" name="name" placeholder="Minimo" />
-                </div>
-              </div>
-              <div class="col_half">
-                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                  <input min="0" type="number" name="name" placeholder="Maximo" required />
-                </div>
-              </div>
-            </div>
+        <fieldset>
+            <legend>Tipo de Hogar</legend>
+            <label><input type="checkbox" name="tipo_hogar" value="casa"> Casa</label>
+            <label><input type="checkbox" name="tipo_hogar" value="apartamento"> Apartamento</label>
+            <label><input type="checkbox" name="tipo_hogar" value="condominio"> Condominio</label>
+        </fieldset>
 
-            <input class="button" type="submit" value="Recolectar" />
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+        <label for="operacion">Operación:</label>
+        <select id="operacion" name="operacion">
+            <option value="venta">En Venta</option>
+            <option value="alquiler">En Alquiler</option>
+            <option value="vendido">Vendido</option>
+        </select>
 
+        <label for="precio_min">Precio Mínimo:</label>
+        <input type="number" id="precio_min" name="precio_min">
+
+        <label for="precio_max">Precio Máximo:</label>
+        <input type="number" id="precio_max" name="precio_max">
+
+        <button type="button" onclick="validarFormulario()">Recolectar</button>
+    </form>
+    
+    <script src="js/script.js"></script>
 </body>
-
 </html>
